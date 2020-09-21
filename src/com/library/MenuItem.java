@@ -1,4 +1,4 @@
-package com.sorting;
+package com.library;
 
 public enum MenuItem {
 
