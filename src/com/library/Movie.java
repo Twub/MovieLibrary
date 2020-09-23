@@ -15,6 +15,10 @@ public class Movie implements Serializable {
         this.description = description;
     }
 
+    public String getTitle(){
+        return title;
+    }
+
     @Override
     public String toString(){
         return "Movie title: " + title + " Age limit: " + ageLimit + " Description: " + description + " Production Company: " + productionCompany.getName();

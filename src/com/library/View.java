@@ -180,5 +180,39 @@ public class View {
         return Factory.createProductionCompany(name, address, netWorth);
     }
 
-    
+    public int removeActor(ArrayList<Actor> actors){
+        Scanner input = new Scanner(System.in);
+        for (int i=0; i < actors.size(); i++){
+            System.out.println((i+1) + ": " + actors.get(i).getFirstName() + " " + actors.get(i).getLastName());
+        }
+        int selectedActor = input.nextInt() - 1;
+        return selectedActor;
+    }
+
+    public int removeCustomer(ArrayList<Customer> customers){
+        Scanner input = new Scanner(System.in);
+        for (int i=0; i < customers.size(); i++){
+            System.out.println((i+1) + ": " + customers.get(i).getFirstName() + " " + customers.get(i).getLastName());
+        }
+        int selectedCustomer = input.nextInt() - 1;
+        return selectedCustomer;
+    }
+
+    public int removeMovie(ArrayList<Movie> movies){
+        Scanner input = new Scanner(System.in);
+        for (int i=0; i < movies.size(); i++){
+            System.out.println((i+1) + ": " + movies.get(i).getTitle());
+        }
+        int selectedMovie = input.nextInt() - 1;
+        return selectedMovie;
+    }
+
+    public int removeProductionCompany(ArrayList<ProductionCompany> companies){
+        Scanner input = new Scanner(System.in);
+        for (int i=0; i < companies.size(); i++){
+            System.out.println((i+1) + companies.get(i).getName());
+        }
+        int selectedCompany = input.nextInt() - 1;
+        return selectedCompany;
+    }
 }
