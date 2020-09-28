@@ -213,6 +213,87 @@ public class View {
             System.out.println((i+1) + companies.get(i).getName());
         }
         int selectedCompany = input.nextInt() - 1;
+        ArrayList<Person> personArrayList = new ArrayList<>();
         return selectedCompany;
     }
+
+    public <T extends Person> void searchAndPrintPerson(ArrayList<T> persons){
+        Scanner input = new Scanner(System.in);
+        System.out.println("1: Search by first name.");
+        System.out.println("2: Search by last name.");
+        int userChoice = input.nextInt();
+        switch (userChoice){
+            case 1:
+                String firstName = input.nextLine();
+                for (int i=0; i < persons.size(); i++){
+                    if (persons.get(i).getFirstName().equals(firstName)) printPersonInfo(persons, i);
+                }
+                break;
+            case 2:
+                String lastName = input.nextLine();
+                for (int i=0; i < persons.size(); i++){
+                    if (persons.get(i).getLastName().equals(lastName)) printPersonInfo(persons, i);
+                }
+                break;
+        }
+    }
+
+    public void searchAndPrintMovie(ArrayList<Movie> movies){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Search by title.");
+        System.out.println("Type in title.");
+        String title = input.nextLine();
+        for (Movie movie : movies) {
+            if (movie.getTitle().equals(title)) System.out.println(movie);
+        }
+    }
+
+    public void searchAndPrintProductionCompany(ArrayList<ProductionCompany> companies){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Search by name.");
+        System.out.println("Type in the name of the company.");
+        String name = input.nextLine();
+        for (ProductionCompany company : companies){
+            if (company.getName().equals(name)) System.out.println(company);
+        }
+    }
+
+    private void printPersonInfo(ArrayList<Person> personArrayList, int index){
+        System.out.println(personArrayList.get(index));
+    }
+
+    public boolean exitProgramPopup(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Do you want to save before exit?");
+        System.out.println("Y for yes and N for no,");
+        char userChoice = input.next().charAt(0);
+        if (userChoice == 'Y' || userChoice == 'y'){
+            return true;
+        }else if (userChoice == 'N' || userChoice == 'n'){
+            return false;
+        }
+        return false;
+    }
+
+    public ArrayUtil.SortMethod getSortMethod(){
+        Scanner input = new Scanner(System.in);
+        boolean isIncorrect = true;
+        while (isIncorrect){
+            for (int i=0; i < ArrayUtil.SortMethod.values().length; i++){
+                System.out.println((i+1) + ": " + ArrayUtil.SortMethod.values()[i].description);
+            }
+            int userInput = input.nextInt();
+            switch (userInput){
+                case 1:
+                    return ArrayUtil.SortMethod.SHUFFLE_ARRAY;
+                case 2:
+                    return ArrayUtil.SortMethod.GREATEST_TO_LEAST;
+                case 3:
+                    return ArrayUtil.SortMethod.LEAST_TO_GREATEST;
+            }
+        }
+
+        return null;
+    }
+
 }
