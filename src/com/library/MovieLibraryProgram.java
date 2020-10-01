@@ -127,15 +127,18 @@ public class MovieLibraryProgram {
     }
 
     private void removeActor(){
-        View.getInstance().removeActor(actors);
+        int actor = View.getInstance().removeActor(actors);
+        actors.remove(actor);
     }
 
     private void removeMovie(){
-        View.getInstance().removeMovie(movies);
+        int movie = View.getInstance().removeMovie(movies);
+        movies.remove(movie);
     }
 
     private void removeProductionCompany(){
-        View.getInstance().removeProductionCompany(productionCompanies);
+        int company = View.getInstance().removeProductionCompany(productionCompanies);
+        productionCompanies.remove(company);
     }
 
     private void sortActorList(){
