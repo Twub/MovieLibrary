@@ -34,4 +34,9 @@ public class ProductionCompany {
     public String getAddress() {
         return address;
     }
+
+    @Override
+    public String toString() {
+        return "Company name: " + name + ": Address: " + address + ": Net worth: " + netWorth;
+    }
 }
