@@ -1,5 +1,6 @@
 package com.library;
 
+import java.io.File;
 import java.util.ArrayList;
 
 public class MovieLibraryProgram {
@@ -73,12 +74,6 @@ public class MovieLibraryProgram {
                     break;
                 case SORT_ACTOR_LIST:
                     sortActorList();
-                    break;
-                case SORT_MOVIE_LIST:
-                    sortMovieList();
-                    break;
-                case SORT_PRODUCTION_COMPANY_LIST:
-                    sortProductionCompanyList();
                     break;
                 case HELP_MENU:
                     helpMenu();
@@ -157,36 +152,27 @@ public class MovieLibraryProgram {
         }
     }
 
-    private void sortMovieList(){
-        switch (View.getInstance().getSortMethod()){
-            case SHUFFLE_ARRAY:
-                movies = ArrayUtil.shuffleArray(movies);
-                break;
-            case GREATEST_TO_LEAST:
-                movies = ArrayUtil.greatestFirst(movies);
-                break;
-            case LEAST_TO_GREATEST:
-                movies = ArrayUtil.leastFirst(movies);
-                break;
-        }
-    }
-
-    private void sortProductionCompanyList(){
-        switch (View.getInstance().getSortMethod()){
-            case SHUFFLE_ARRAY:
-                productionCompanies = ArrayUtil.shuffleArray(productionCompanies);
-                break;
-            case GREATEST_TO_LEAST:
-                productionCompanies = ArrayUtil.greatestFirst(productionCompanies);
-                break;
-            case LEAST_TO_GREATEST:
-                productionCompanies = ArrayUtil.leastFirst(productionCompanies);
-                break;
-        }
-    }
-
     private void helpMenu(){
         System.out.println("Welcome to Movie Library. This is a library system which you can store your movies, actors, customers and movie production companies.");
+    }
+
+    private boolean exitProgram(){
+        boolean exitProgramChoice = View.getInstance().exitProgramPopup();
+        if (exitProgramChoice){
+            for (Actor actor : actors){
+                FileUtils.saveActor(actors, "Actor.ser");
+            }
+            for (Movie movie : movies){
+                FileUtils.saveMovie(movies, "Movie.ser");
+            }
+            for (Customer customer : customers){
+                FileUtils.saveCustomer(customers, "Customer.ser");
+            }
+            for (ProductionCompany productionCompany : productionCompanies){
+                FileUtils.saveProductionCompany(productionCompanies, "Company");
+            }
+        }
+        return false;
     }
 
 }
