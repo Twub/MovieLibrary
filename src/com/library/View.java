@@ -159,11 +159,12 @@ public class View {
         String title, description;
         int ageLimit;
         System.out.println("Type in the movies title.");
-        title = input.next();
+        title = input.nextLine();
         System.out.println("Type in the movies description.");
-        description = input.next();
+        description = input.nextLine();
         System.out.println("Type in the movices age limit.");
-        ageLimit = Integer.parseInt(input.next());
+        String tmp = input.next();
+        ageLimit = Integer.parseInt(tmp);
         return Factory.createMovie(title, description, ageLimit);
     }
 
@@ -172,11 +173,11 @@ public class View {
         String name, address;
         int netWorth;
         System.out.println("Type in the company name.");
-        name = input.next();
+        name = input.nextLine();
         System.out.println("Type in the company address.");
-        address = input.next();
+        address = input.nextLine();
         System.out.println("Type in the company net worth.");
-        netWorth = Integer.parseInt(input.next());
+        netWorth = input.nextInt();
         return Factory.createProductionCompany(name, address, netWorth);
     }
 

@@ -81,8 +81,8 @@ public class MovieLibraryProgram {
                 case EXIT_PROGRAM:
                     exitProgram();
                     break;
-                    default:
-                        System.out.println("ERROR M8");
+                default:
+                    System.out.println("ERROR M8");
             }
         }while (isRunning);
     }

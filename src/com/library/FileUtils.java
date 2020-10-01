@@ -66,10 +66,10 @@ public class FileUtils {
             personArrayList = (ArrayList<Customer>) objectInputStream.readObject();
             objectInputStream.close();
         }catch (Exception e){
-            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19")){
+            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19") || e.getStackTrace().toString().equals("java.io.FileNotFoundException")){
 
             }else {
-                e.printStackTrace();
+
             }
         }
         return personArrayList;
@@ -84,10 +84,10 @@ public class FileUtils {
             personArrayList = (ArrayList<Actor>) objectInputStream.readObject();
             objectInputStream.close();
         }catch (Exception e){
-            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19")){
+            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19") || e.getStackTrace().toString().equals("java.io.FileNotFoundException")){
 
             }else {
-                e.printStackTrace();
+
             }
         }
         return personArrayList;
@@ -102,10 +102,10 @@ public class FileUtils {
             movies = (ArrayList<Movie>) objectInputStream.readObject();
             objectInputStream.close();
         }catch (Exception e){
-            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19")){
+            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19") || e.getStackTrace().toString().equals("java.io.FileNotFoundException")){
 
             }else {
-                e.printStackTrace();
+
             }
         }
         return movies;
@@ -120,10 +120,10 @@ public class FileUtils {
             companies = (ArrayList<ProductionCompany>) objectInputStream.readObject();
             objectInputStream.close();
         }catch (Exception e){
-            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19")){
+            if (e.getStackTrace().toString().equals("[Ljava.lang.StackTraceElement;@2f2c9b19") || e.getStackTrace().toString().equals("java.io.FileNotFoundException")){
 
             }else {
-                e.printStackTrace();
+
             }
         }
         return companies;
