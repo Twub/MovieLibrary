@@ -50,10 +50,6 @@ public class View {
                 return MenuItem.REMOVE_PRODUCTION_COMPANY;
             case 13:
                 return MenuItem.SORT_ACTOR_LIST;
-            case 14:
-                return MenuItem.SORT_MOVIE_LIST;
-            case 15:
-                return MenuItem.SORT_PRODUCTION_COMPANY_LIST;
             case 16:
                 return MenuItem.HELP_MENU;
             case 17:
@@ -186,6 +182,7 @@ public class View {
         for (int i=0; i < actors.size(); i++){
             System.out.println((i+1) + ": " + actors.get(i).getFirstName() + " " + actors.get(i).getLastName());
         }
+        System.out.println("Select Actor you want to remove.");
         int selectedActor = input.nextInt() - 1;
         return selectedActor;
     }
@@ -195,6 +192,7 @@ public class View {
         for (int i=0; i < customers.size(); i++){
             System.out.println((i+1) + ": " + customers.get(i).getFirstName() + " " + customers.get(i).getLastName());
         }
+        System.out.println("Select Customer you want to remove.");
         int selectedCustomer = input.nextInt() - 1;
         return selectedCustomer;
     }
@@ -204,6 +202,7 @@ public class View {
         for (int i=0; i < movies.size(); i++){
             System.out.println((i+1) + ": " + movies.get(i).getTitle());
         }
+        System.out.println("Select Movie you want to remove.");
         int selectedMovie = input.nextInt() - 1;
         return selectedMovie;
     }
@@ -211,8 +210,9 @@ public class View {
     public int removeProductionCompany(ArrayList<ProductionCompany> companies){
         Scanner input = new Scanner(System.in);
         for (int i=0; i < companies.size(); i++){
-            System.out.println((i+1) + companies.get(i).getName());
+            System.out.println((i+1) + ": " + companies.get(i).getName());
         }
+        System.out.println("Select Company you want to remove.");
         int selectedCompany = input.nextInt() - 1;
         ArrayList<Person> personArrayList = new ArrayList<>();
         return selectedCompany;
