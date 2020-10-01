@@ -9,11 +9,50 @@ import java.util.ArrayList;
 
 public class FileUtils {
 
-    public static void save(String fileName, Object o, StandardOpenOption option){
-        Path path = Paths.get(fileName);
-        try (ObjectOutputStream output = new ObjectOutputStream(Files.newOutputStream(path, option))){
-            output.writeObject(o);
-        }catch (IOException ex){
+    public static void saveActor(ArrayList<Actor> serObj, String fileName) {
+        try {
+
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void saveMovie(ArrayList<Movie> serObj, String fileName) {
+        try {
+
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void saveCustomer(ArrayList<Customer> serObj, String fileName) {
+        try {
+
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static void saveProductionCompany(ArrayList<ProductionCompany> serObj, String fileName) {
+        try {
+
+            FileOutputStream fileOut = new FileOutputStream(fileName);
+            ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
+            objectOut.writeObject(serObj);
+            objectOut.close();
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
