@@ -226,13 +226,13 @@ public class View {
             case 1:
                 String firstName = input.nextLine();
                 for (int i=0; i < persons.size(); i++){
-                    if (persons.get(i).getFirstName().equals(firstName)) printPersonInfo(persons, i);
+                    if (persons.get(i).getFirstName().equals(firstName)) printPersonInfo((ArrayList<Person>) persons, i);
                 }
                 break;
             case 2:
                 String lastName = input.nextLine();
                 for (int i=0; i < persons.size(); i++){
-                    if (persons.get(i).getLastName().equals(lastName)) printPersonInfo(persons, i);
+                    if (persons.get(i).getLastName().equals(lastName)) printPersonInfo((ArrayList<Person>) persons, i);
                 }
                 break;
         }
