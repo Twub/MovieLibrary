@@ -11,7 +11,6 @@ public class FileUtils {
 
     public static void saveActor(ArrayList<Actor> serObj, String fileName) {
         try {
-
             FileOutputStream fileOut = new FileOutputStream(fileName);
             ObjectOutputStream objectOut = new ObjectOutputStream(fileOut);
             objectOut.writeObject(serObj);
