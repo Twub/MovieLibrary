@@ -20,7 +20,8 @@ public enum MenuItem {
     REMOVE_PRODUCTION_COMPANY("16. Remove production company"),
     SORT_ACTOR_LIST("17. Sort actors list"),
     HELP_MENU("18. Show help menu"),
-    EXIT_PROGRAM("19. Exit Movie Library Program");
+    EXIT_PROGRAM("19. Exit Movie Library Program"),
+    CONVERT_CUSTOMER_TO_ACTOR("20. Convert a customer to an Actor");
 
     public String description;
 
