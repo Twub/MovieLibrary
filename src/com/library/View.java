@@ -58,10 +58,12 @@ public class View {
                 return MenuItem.REMOVE_PRODUCTION_COMPANY;
             case 17:
                 return MenuItem.SORT_ACTOR_LIST;
-            case 20:
+            case 18:
                 return MenuItem.HELP_MENU;
-            case 21:
+            case 19:
                 return MenuItem.EXIT_PROGRAM;
+            case 20:
+                return MenuItem.CONVERT_CUSTOMER_TO_ACTOR;
         }
         return null;
     }
@@ -94,42 +96,6 @@ public class View {
         for (ProductionCompany company : productionCompanies){
             System.out.println(company);
         }
-    }
-
-    public int selectActor(ArrayList<Actor> actors){
-        Scanner input = new Scanner(System.in);
-        for (int i=0; i < actors.size(); i++){
-            System.out.println((i+1) + ": " + actors.get(i));
-        }
-        int selectedActor = input.nextInt() - 1;
-        return selectedActor;
-    }
-
-    public int selectCustomer(ArrayList<Customer> customers){
-        Scanner input = new Scanner(System.in);
-        for (int i=0; i < customers.size(); i++){
-            System.out.println((i+1) + ": " + customers.get(i));
-        }
-        int selectedCustomer = input.nextInt() - 1;
-        return selectedCustomer;
-    }
-
-    public int selectMovie(ArrayList<Movie> movies){
-        Scanner input = new Scanner(System.in);
-        for (int i=0; i < movies.size(); i++){
-            System.out.println((i+1) + ": " + movies.get(i));
-        }
-        int selectedMovie = input.nextInt() - 1;
-        return selectedMovie;
-    }
-
-    public int selectProductionCompany(ArrayList<ProductionCompany> productionCompanies){
-        Scanner input = new Scanner(System.in);
-        for (int i=0; i < productionCompanies.size(); i++){
-            System.out.println((i+1) + ": " + productionCompanies.get(i));
-        }
-        int selectedProductionCompany = input.nextInt() - 1;
-        return selectedProductionCompany;
     }
 
     public Actor addNewActor(){
@@ -258,6 +224,26 @@ public class View {
         for (Movie movie : movies) {
             if (movie.getTitle().equals(title)) System.out.println(movie);
         }
+    }
+
+    public Actor convertCustomerToActor(ArrayList<Customer> customers){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Type in customers first name.");
+        String firstName = input.nextLine();
+        Customer foundCustomer = null;
+        for (Customer customer : customers){
+            if (customer.getFirstName().equals(firstName)){
+                foundCustomer = customer;
+                break;
+            }
+        }
+        if (foundCustomer == null){
+            System.out.println("Couldn´t find customer.");
+        }else {
+            System.out.println("Customer found: " + foundCustomer);
+            return ObjectUtils.customerToActor(foundCustomer);
+        }
+        return null;
     }
 
     public void searchAndPrintProductionCompany(ArrayList<ProductionCompany> companies){
