@@ -27,32 +27,40 @@ public class View {
             case 1:
                 return MenuItem.SHOW_ALL_ACTORS;
             case 2:
-                return MenuItem.SHOW_ALL_MOVIES;
+                return MenuItem.SHOW_ALL_CUSTOMERS;
             case 3:
-                return MenuItem.SHOW_ALL_PRODUCTION_COMPANIES;
+                return MenuItem.SHOW_ALL_MOVIES;
             case 4:
-                return MenuItem.ADD_NEW_ACTOR;
+                return MenuItem.SHOW_ALL_PRODUCTION_COMPANIES;
             case 5:
-                return MenuItem.ADD_NEW_MOVIE;
+                return MenuItem.ADD_NEW_ACTOR;
             case 6:
-                return MenuItem.ADD_NEW_PRODUCTION_COMPANY;
+                return MenuItem.ADD_NEW_CUSTOMER;
             case 7:
-                return MenuItem.SHOW_ACTOR;
+                return MenuItem.ADD_NEW_MOVIE;
             case 8:
-                return MenuItem.SHOW_MOVIE;
+                return MenuItem.ADD_NEW_PRODUCTION_COMPANY;
             case 9:
-                return MenuItem.SHOW_PRODUCTION_COMPANY;
+                return MenuItem.SHOW_ACTOR;
             case 10:
-                return MenuItem.REMOVE_ACTOR;
+                return MenuItem.SHOW_CUSTOMER;
             case 11:
-                return MenuItem.REMOVE_MOVIE;
+                return MenuItem.SHOW_MOVIE;
             case 12:
-                return MenuItem.REMOVE_PRODUCTION_COMPANY;
+                return MenuItem.SHOW_PRODUCTION_COMPANY;
             case 13:
-                return MenuItem.SORT_ACTOR_LIST;
+                return MenuItem.REMOVE_ACTOR;
+            case 14:
+                return MenuItem.REMOVE_CUSTOMER;
+            case 15:
+                return MenuItem.REMOVE_MOVIE;
             case 16:
-                return MenuItem.HELP_MENU;
+                return MenuItem.REMOVE_PRODUCTION_COMPANY;
             case 17:
+                return MenuItem.SORT_ACTOR_LIST;
+            case 20:
+                return MenuItem.HELP_MENU;
+            case 21:
                 return MenuItem.EXIT_PROGRAM;
         }
         return null;
@@ -223,14 +231,17 @@ public class View {
         System.out.println("1: Search by first name.");
         System.out.println("2: Search by last name.");
         int userChoice = input.nextInt();
+        input.nextLine();
         switch (userChoice){
             case 1:
+                System.out.println("Type in actors first name.");
                 String firstName = input.nextLine();
                 for (int i=0; i < persons.size(); i++){
                     if (persons.get(i).getFirstName().equals(firstName)) printPersonInfo((ArrayList<Person>) persons, i);
                 }
                 break;
             case 2:
+                System.out.println("Type in actors last name.");
                 String lastName = input.nextLine();
                 for (int i=0; i < persons.size(); i++){
                     if (persons.get(i).getLastName().equals(lastName)) printPersonInfo((ArrayList<Person>) persons, i);
