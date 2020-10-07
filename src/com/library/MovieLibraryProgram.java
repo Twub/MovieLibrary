@@ -94,10 +94,20 @@ public class MovieLibraryProgram {
                 case EXIT_PROGRAM:
                     exitProgram();
                     break;
+                case CONVERT_CUSTOMER_TO_ACTOR:
+                    convertCustomerToActor();
+                    break;
                 default:
                     System.out.println("ERROR M8");
             }
         }while (isRunning);
+    }
+
+    private void convertCustomerToActor(){
+        Actor newActor = View.getInstance().convertCustomerToActor(customers);
+        if (newActor != null){
+            actors.add(newActor);
+        }
     }
 
     private void showAllActors(){
