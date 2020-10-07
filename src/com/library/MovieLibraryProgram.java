@@ -11,6 +11,7 @@ public class MovieLibraryProgram {
     private ArrayList<Customer> customers;
     private ArrayList<Actor> actors;
     private ArrayList<ProductionCompany> productionCompanies;
+    private boolean isRunning = true;
 
     private MovieLibraryProgram(){
         System.out.println("Welcome to the Movie Library");
@@ -32,12 +33,15 @@ public class MovieLibraryProgram {
     }
 
     public void run(){
-        boolean isRunning = true;
+
 
         do {
             switch (View.getInstance().showAndGetMenuChoice()){
                 case SHOW_ALL_ACTORS:
                     showAllActors();
+                    break;
+                case SHOW_ALL_CUSTOMERS:
+                    showAllCustomers();
                     break;
                 case SHOW_ALL_MOVIES:
                     showAllMovies();
@@ -48,6 +52,9 @@ public class MovieLibraryProgram {
                 case ADD_NEW_ACTOR:
                     addNewActor();
                     break;
+                case ADD_NEW_CUSTOMER:
+                    addNewCustomer();
+                    break;
                 case ADD_NEW_MOVIE:
                     addNewMovie();
                     break;
@@ -57,6 +64,9 @@ public class MovieLibraryProgram {
                 case SHOW_ACTOR:
                     showActor();
                     break;
+                case SHOW_CUSTOMER:
+                    showCustomer();
+                    break;
                 case SHOW_MOVIE:
                     showMovie();
                     break;
@@ -65,6 +75,9 @@ public class MovieLibraryProgram {
                     break;
                 case REMOVE_ACTOR:
                     removeActor();
+                    break;
+                case REMOVE_CUSTOMER:
+                    removeCustomer();
                     break;
                 case REMOVE_MOVIE:
                     removeMovie();
@@ -91,6 +104,10 @@ public class MovieLibraryProgram {
         View.getInstance().showActors(actors);
     }
 
+    private void showAllCustomers(){
+        View.getInstance().showCustomers(customers);
+    }
+
     private void showAllMovies(){
         View.getInstance().showMovies(movies);
     }
@@ -102,6 +119,11 @@ public class MovieLibraryProgram {
     private void addNewActor(){
         Actor actor = View.getInstance().addNewActor();
         actors.add(actor);
+    }
+
+    private void addNewCustomer(){
+        Customer customer = View.getInstance().addNewCustomer();
+        customers.add(customer);
     }
 
     private void addNewMovie(){
@@ -118,6 +140,10 @@ public class MovieLibraryProgram {
         View.getInstance().searchAndPrintPerson(actors);
     }
 
+    private void showCustomer(){
+        View.getInstance().searchAndPrintPerson(customers);
+    }
+
     private void showMovie(){
         View.getInstance().searchAndPrintMovie(movies);
     }
@@ -129,6 +155,11 @@ public class MovieLibraryProgram {
     private void removeActor(){
         int actor = View.getInstance().removeActor(actors);
         actors.remove(actor);
+    }
+
+    private void removeCustomer(){
+        int customer = View.getInstance().removeCustomer(customers);
+        customers.remove(customer);
     }
 
     private void removeMovie(){
@@ -174,6 +205,7 @@ public class MovieLibraryProgram {
             for (ProductionCompany productionCompany : productionCompanies){
                 FileUtils.saveProductionCompany(productionCompanies, "Company");
             }
+            isRunning = false;
         }
         return false;
     }
